@@ -1,4 +1,4 @@
-name: Build APK from zip
+name: Build APK
 on:
   workflow_dispatch:
 
@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Unzip project
-        run: unzip -q -o ./*.zip -d project
+      - name: Unzip project if a zip was uploaded
+        run: |
+          if ls ./*.zip >/dev/null 2>&1; then unzip -q -o ./*.zip -d project; fi
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -16,13 +17,16 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - uses: android-actions/setup-android@v3
+      - name: Accept Android SDK licenses (SDK is preinstalled on the runner)
+        run: |
+          yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: "8.7"
       - name: Build debug APK
         run: |
-          DIR=$(dirname "$(find project -name settings.gradle.kts | head -n1)")
+          DIR=$(dirname "$(find . -maxdepth 4 -name settings.gradle.kts | head -n1)")
+          echo "Project dir: $DIR"
           echo "DIR=$DIR" >> "$GITHUB_ENV"
           cd "$DIR"
           gradle assembleDebug --no-daemon
