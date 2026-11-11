@@ -1,0 +1,32 @@
+name: Build APK from zip
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unzip project
+        run: unzip -q -o ./*.zip -d project
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.7"
+      - name: Build debug APK
+        run: |
+          DIR=$(dirname "$(find project -name settings.gradle.kts | head -n1)")
+          echo "DIR=$DIR" >> "$GITHUB_ENV"
+          cd "$DIR"
+          gradle assembleDebug --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ZahidBot-apk
+          path: ${{ env.DIR }}/app/build/outputs/apk/debug/app-debug.apk
