@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ZahidBot" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/cp_cyan</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="colorPrimaryVariant">#00B8C4</item>
+        <item name="colorSecondary">@color/cp_magenta</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="colorSurface">@color/cp_surface</item>
+        <item name="colorOnSurface">@color/cp_text</item>
+        <item name="android:colorBackground">@color/cp_bg</item>
+        <item name="android:windowBackground">@color/cp_bg</item>
+        <item name="android:colorAccent">@color/cp_cyan</item>
+        <item name="android:textColorPrimary">@color/cp_text</item>
+        <item name="android:textColorSecondary">@color/cp_dim</item>
+        <item name="android:textColorHint">@color/cp_dim</item>
+        <item name="android:fontFamily">monospace</item>
+        <item name="android:statusBarColor">@color/cp_bg</item>
+        <item name="android:navigationBarColor">@color/cp_bg</item>
+        <item name="materialButtonStyle">@style/Widget.Zahid.Button</item>
+        <item name="textInputStyle">@style/Widget.Zahid.TextInput</item>
+        <item name="android:alertDialogTheme">@style/Zahid.Dialog</item>
+    </style>
+
+    <style name="Zahid.Dialog" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/bg_dialog</item>
+        <item name="android:textColorPrimary">@color/cp_cyan</item>
+        <item name="android:textColorSecondary">@color/cp_text</item>
+        <item name="android:colorAccent">@color/cp_cyan</item>
+        <item name="android:fontFamily">monospace</item>
+    </style>
+
+    <style name="Widget.Zahid.Button" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/btn_text_cyan</item>
+        <item name="strokeColor">@color/btn_stroke_cyan</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="rippleColor">#3300F0FF</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.Zahid.Button.Filled" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/btn_text_on_cyan</item>
+        <item name="backgroundTint">@color/btn_fill_cyan</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.Zahid.Button.Danger" parent="Widget.Zahid.Button">
+        <item name="android:textColor">@color/btn_text_magenta</item>
+        <item name="strokeColor">@color/btn_stroke_magenta</item>
+        <item name="rippleColor">#33FF2A6D</item>
+    </style>
+
+    <style name="Widget.Zahid.Button.Text" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/cp_yellow</item>
+        <item name="rippleColor">#33F9F002</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.Zahid.TextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/field_stroke</item>
+        <item name="hintTextColor">@color/cp_cyan</item>
+        <item name="android:textColorHint">@color/cp_dim</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">0dp</item>
+        <item name="boxCornerRadiusTopEnd">0dp</item>
+        <item name="boxCornerRadiusBottomStart">0dp</item>
+        <item name="boxCornerRadiusBottomEnd">0dp</item>
+    </style>
+</resources>

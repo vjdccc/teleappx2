@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cp_bg"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layoutDirection="rtl">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layoutDirection="ltr"
+            android:gravity="start"
+            android:text="TELETHON//ZAHID"
+            android:textColor="@color/cp_cyan"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.08"
+            android:shadowColor="#FF2A6D"
+            android:shadowDx="3"
+            android:shadowDy="3"
+            android:shadowRadius="1"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="6dp"
+            android:background="@color/cp_magenta"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layoutDirection="ltr"
+            android:gravity="start"
+            android:text="[ USERBOT CONTROL PANEL ]"
+            android:textColor="@color/cp_dim"
+            android:textSize="11sp"
+            android:letterSpacing="0.15"/>
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="الحالة: ○ متوقف"
+            android:textColor="@color/cp_text"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@drawable/bg_panel">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="▌ لا تملك المتطلبات؟ استخرجها من هنا"
+            android:textColor="@color/cp_yellow"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="الخطوات بالترتيب: API ID/HASH ثم الجلسة ثم البوت. الحقول تُملأ تلقائياً."
+            android:textColor="@color/cp_dim"
+            android:textSize="12sp"/>
+        <Button
+            android:id="@+id/btnHelpApi"
+            style="@style/Widget.Zahid.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="طريقة الحصول على API ID و API HASH"/>
+        <Button
+            android:id="@+id/btnGetSession"
+            style="@style/Widget.Zahid.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            android:text="استخراج الجلسة وايدي المالك"/>
+        <Button
+            android:id="@+id/btnMakeBot"
+            style="@style/Widget.Zahid.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            android:text="انشاء بوت تلقائياً (عبر BotFather)"/>
+        <Button
+            android:id="@+id/btnFetchBot"
+            style="@style/Widget.Zahid.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            android:text="جلب يوزر البوت من التوكن"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@drawable/bg_panel">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="▌ ١) بيانات الحساب (مشفّرة على جهازك فقط)"
+            android:textColor="@color/cp_yellow"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="API ID (من my.telegram.org)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etApiId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/cp_text"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="API HASH">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etApiHash"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/cp_text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Session String (جلسة Pyrogram)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/cp_text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Bot Token (من @BotFather)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etToken"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/cp_text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="يوزر البوت بدون @">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBotUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/cp_text"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="ايدي حسابك (المالك)">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSudoId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/cp_text"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/btnSave"
+            style="@style/Widget.Zahid.Button.Filled"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="حفظ البيانات"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@drawable/bg_panel">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="▌ ٢) الصلاحيات المطلوبة"
+            android:textColor="@color/cp_yellow"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"/>
+        <TextView
+            android:id="@+id/tvNotif"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text=""
+            android:textColor="@color/cp_text"/>
+        <Button
+            android:id="@+id/btnNotif"
+            style="@style/Widget.Zahid.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            android:text="السماح بالاشعارات"/>
+        <TextView
+            android:id="@+id/tvBattery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text=""
+            android:textColor="@color/cp_text"/>
+        <Button
+            android:id="@+id/btnBattery"
+            style="@style/Widget.Zahid.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            android:text="الغاء قيود البطارية عن التطبيق"/>
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/swBoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/cp_text"
+            android:text="تشغيل البوت تلقائياً بعد اقلاع الهاتف"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@drawable/bg_panel">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="▌ ٣) التشغيل"
+            android:textColor="@color/cp_yellow"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+            <Button
+                android:id="@+id/btnStart"
+                style="@style/Widget.Zahid.Button.Filled"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                android:text="تشغيل"/>
+            <Button
+                android:id="@+id/btnStop"
+                style="@style/Widget.Zahid.Button.Danger"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                android:text="ايقاف"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="vertical"
+        android:padding="12dp"
+        android:background="@drawable/bg_terminal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="▌ السجل"
+            android:textColor="@color/cp_yellow"
+            android:textStyle="bold"
+            android:letterSpacing="0.05"/>
+        <TextView
+            android:id="@+id/tvLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layoutDirection="ltr"
+            android:textDirection="ltr"
+            android:fontFamily="monospace"
+            android:textColor="@color/cp_green"
+            android:textSize="11sp"
+            android:textIsSelectable="true"/>
+    </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="#5500F0FF"/>
+        <TextView
+            android:id="@+id/tvRights"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="© 2026 زاهد — جميع الحقوق محفوظة"
+            android:textColor="@color/cp_dim"
+            android:textSize="12sp"/>
+        <Button
+            android:id="@+id/btnDev"
+            style="@style/Widget.Zahid.Button.Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="المطور"/>
+    </LinearLayout>
+</ScrollView>
